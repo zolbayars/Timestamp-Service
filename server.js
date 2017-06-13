@@ -40,8 +40,12 @@ app.route('/')
 
 app.get("/timestamp/:date", function (request, response) {
   var givenDate = request.params.date;  
-  console.log(); 
-  response.send();
+  
+  var resultObj = {
+    "unix": Date.parse(givenDate)/1000,
+    "natural": 
+  } 
+  response.send(resultObj);
 });
 
 // Respond not found to all the wrong routes
