@@ -40,10 +40,18 @@ app.route('/')
 
 app.get("/timestamp/:date", function (request, response) {
   var givenDate = request.params.date;  
+  var unix = Date.parse(givenDate)/1000;  
+  var natural = null; 
   
+  if(unix == NaN){
+    unix = null; 
+  }else{
+    natural = new Date(unix); 
+  }
+    
   var resultObj = {
-    "unix": Date.parse(givenDate)/1000,
-    "natural": 
+    "unix": unix,
+    "natural": natural
   } 
   response.send(resultObj);
 });
