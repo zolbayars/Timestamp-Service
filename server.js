@@ -43,12 +43,19 @@ app.get("/timestamp/:date", function (request, response) {
   var unix = Date.parse(givenDate);  
   var natural = null; 
   
-  if(unix == NaN){
+  var date; 
+  
+  if(!unix){
+    
     unix = null; 
+    date = new Date(givenDate * 1000); 
+    unix = Date.parse(date); 
+    console.log(unix);
   }else{
-    var date = new Date(unix); 
-    natural = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes(); 
+     date = new Date(unix); 
   }
+  
+  natural = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes(); 
     
   var resultObj = {
     "unix": unix,
