@@ -38,9 +38,11 @@ app.route('/')
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
 
-// app.get("/dreams", function (request, response) {
-//   response.send();
-// });
+app.get("/timestamp/:date", function (request, response) {
+  var givenDate = request.params.date;  
+  console.log(); 
+  response.send();
+});
 
 // Respond not found to all the wrong routes
 app.use(function(req, res, next){
