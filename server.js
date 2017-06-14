@@ -55,7 +55,7 @@ app.get("/timestamp/:date", function (request, response) {
      date = new Date(unix); 
   }
   
-  natural = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes(); 
+  natural = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes(); 
     
   var resultObj = {
     "unix": unix,
